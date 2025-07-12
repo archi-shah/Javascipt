@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #container
+        {
+            display: flex;
+            flex-wrap: wrap;
+            border: 20px solid brown;
+            height: 450px;
+            margin-top: 45px;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+
+        #leftpanel
+        {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            height: 100%;
+            width: 72%;
+            background-color: rgb(243, 243, 227);
+        }
+
+        .animate-container
+        {
+            animation: animate-text 1s infinite;
+            animation-direction: alternate;
+            animation-timing-function: linear;
+            padding-left: 25%;
+            box-sizing: border-box;
+            background-color: aqua;
+            color: brown;
+            width: 100%;
+            font-size: 60px;
+        }
+
+        @keyframes animate-text
+        {
+            from{padding-top:10%;}
+            to{padding-top:15%;}    
+        }
+
+        #rightpanel
+        {
+            height: 100%;
+            width: 28%;
+            background-color: rgb(230, 247, 221);
+        }
+        
+        @keyframes animate-ball
+        {
+            from{margin-top: 0px;}
+            to{margin-top: 375px;}    
+        }
+        
+        .ball
+        {
+            height: 80px;
+            width: 80px;
+            animation: animate-ball 2s infinite alternate linear;
+            border-radius: 50%;
+            margin-top: -500px;
+        }
+
+        .btn
+        {
+            height: 80px;
+            width: 140px;
+            font-size: 20px;
+            margin-top: 2%;
+            margin-left: 30%;
+            border: none;
+            background-color: rgb(221, 198, 171);
+            border-radius: 35px;
+            text-align: center;
+        }
+
+    </style>
+
+    <script>
+
+        let score = 0
+
+        function fun1()
+        {
+            var leftpanel = document.getElementById("leftpanel");
+            let count = 0
+
+            let i = setInterval(() =>
+            {
+                count++;
+
+                if(count>=10)
+                {
+                    clearInterval(i)
+                }
+                var d = document.createElement("div")
+                d.className = "ball"
+                let delay = Math.round(Math.random()*1000) + "ms"
+                d.style.animationDelay = delay
+                d.onclick=()=>burstball(d)
+                let speed = Math.round(Math.random()*5000)
+                
+                if(speed<1000)
+                {
+                    speed = 2000
+                }
+
+                d.style.animationDuration = speed + "ms"
+
+                if(count%4==0)
+                {
+                    d.style.backgroundColor = "purple"
+                }
+
+                if(count%4==1)
+                {
+                    d.style.backgroundColor = "red"
+                }
+
+                if(count%4==2)
+                {
+                    d.style.backgroundColor = "orange"
+                }
+
+                if(count%4==3)
+                {
+                    d.style.backgroundColor = "greenyellow"
+                }
+
+                leftpanel.appendChild(d)
+
+            },1000)
+        
+        }
+        const  burstball=(ball)=>
+        {
+            ball.style.visibility = "hidden";
+            score++;
+            document.getElementById("pscore").innerHTML = "Score : " + score;
+            if(score ==10)
+            {
+               leftpanel.innerHTML="You Won"
+               
+            }
+        }
+
+        function StartGame()
+        {
+            var btnstart = document.getElementById("btnstart")
+            var timer = document.getElementById("p1")
+            btnstart.style.display = "none"
+            
+            count = 0;
+            let i = setInterval(() =>
+            {
+                count++;
+                if(count==60)
+            {
+                             let leftpanel = document.getElementById("leftpanel")
+             leftpanel.innerHTML="Game Over"
+             leftpanel.className="container animate-container"
+
+             document.getElementById("btnrestart").style.visibility = "visible"
+
+            }
+                if(score==10)
+            {
+                clearInterval(i)
+            }
+                document.getElementById("p1").innerHTML = count;
+            },1000)
+
+            fun1();
+
+            setTimeout(() =>
+            {
+                clearInterval(i)
+            },60000)
+        }
+
+    </script>
+
+</head>
+<body>
+        
+    <div id="container">
+        
+        <div id="leftpanel">    </div>
+
+        
+        <div id="rightpanel">
+
+            <p id="p1"> 0 </p>
+
+            <input type="button" value="START" class="btn" id="btnstart" onclick="StartGame()">
+
+            <p id="pscore" style="background-color:rgb(249, 124, 78); color: white; margin-top:40px; padding: 25px; 
+                                font-size: 25px; width: 120px; border-radius: 10px; text-align: center; margin-left: 27%;">
+
+                    Score : 0
+
+            </p>
+
+            <input type="button" value="RESTART" class="btn" id="btnrestart" style="visibility: hidden;">
+        </div>
+
+    </div>
+    
+</body>
+</html>

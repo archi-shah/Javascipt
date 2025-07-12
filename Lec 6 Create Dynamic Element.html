@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function fun1()
+        {
+            var container = document.getElementById("container");
+            var txtbox = document.createElement("input")
+            container.appendChild(txtbox)
+        }
+    </script>
+</head>
+<body>
+    <p> Your Hobbies :  <input type="text"> 
+        <input type="button" value="+" onclick="fun1()">
+    </p>
+
+    <div id="container">
+
+    </div>
+</body>
+</html>

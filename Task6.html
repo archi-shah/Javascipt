@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/style2.css">
+    <script>
+
+        function fun1()
+        {
+            var txtname = document.getElementById("txtname")
+            var txt1 = document.getElementById("txt1")
+            var txt2 = document.getElementById("txt2")
+            var txt3 = document.getElementById("txt3")
+            var presult = document.getElementById("presult")
+
+            let m1 = parseInt(txt1.value)
+            let m2 = parseInt(txt2.value)
+            let m3 = parseInt(txt3.value)
+
+            let msg = "";
+            let colorname = "";
+
+            if(m1>=35 && m2>=35 && m3>=35)
+            {
+              
+                let avg = m1+m2+m3
+                avg = avg/3
+
+
+                if(avg>=60)
+                {
+                    msg = "Passed With first Division    " +avg
+                    colorname = "green"
+                }
+
+                else if(avg>=45)
+                {
+                    msg = "Passed With Second Division   " +avg
+                    colorname = green
+                }
+
+                else
+                {
+                    msg = "Passed With Third Division   " +avg
+                    colorname = green
+                }
+
+            }
+
+            else
+            {
+                msg = "You Are Fail In One Or More Subjects....."
+                colorname = "red"
+            }
+
+            presult.innerHTML = msg;
+            presult.style.color = colorname;
+        }
+    </script>
+
+</head>
+<body>
+    
+    <div class="container">
+
+    <p>
+        Enter Your Name : <input type="text" id="txtname">
+    </p>
+
+    <br>
+
+    <p> <h2>
+        Enter Three Subject Marks : 
+    </h2> </p>
+    
+    <br>
+
+    <p>
+        Enter Physics Marks : <input type="text" id="txt1">
+    </p>
+
+    <p>
+        Enter Chemistry Marks : <input type="text" id="txt2">
+    </p>
+
+    <p>
+        Enter Maths Marks : <input type="text" id="txt3"> 
+    </p>
+
+    <input type="button" value="Show Result" onclick="fun1()">
+
+    <p id="presult">
+
+    </p>
+
+    </div>
+
+</body>
+</html>

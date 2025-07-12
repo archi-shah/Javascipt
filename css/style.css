@@ -1,0 +1,13 @@
+ input[type="button"]
+        {
+            height:40px;
+            width:150px;
+            border: 2px solid white;
+            background-color: orange;
+        }
+
+        .btncalc
+        {
+            font-size: 25px;
+            width: 50px;
+        }

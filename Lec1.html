@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        input[type="button"]
+        {
+            height:40px;
+            width:150px;
+            border: 2px solid white;
+            background-color: orange;
+        }
+    </style>
+
+    <script>
+        function welcome()
+        {
+            alert("hello world how are you today");
+        }
+
+        function fun1(n)
+        {
+            // alert("Welcome "+n)
+            alert(`Welcome ${n}`)
+        }
+
+        function fun2()
+        {
+            alert("Welcome Good Morning")
+        }
+
+        function fun3()
+        {
+            alert("Welcome Good Afternoon")
+        }
+
+        function fun4()
+        {
+            alert("Welcome Good Evening")
+        }
+
+        function fun5()
+        {
+            alert("Welcome Good Night")
+        }
+
+        function fun6(n)
+        {
+            alert(`Good Morning ${n}`)
+        }
+
+        function fun7(n)
+        {
+            alert(`Good Afternoon ${n}`)
+        }
+
+        function fun8(n)
+        {
+            alert(`Good Evening ${n}`)
+        }
+
+        function fun9(n)
+        {
+            alert(`Good Night ${n}`)
+        }
+
+    </script>
+</head>
+<body>
+    <input type="button" value="Click Here" onclick="alert('welcome to javascript')">
+    <input type="button" value="Welcome" onclick="welcome()">
+    <input type="button" value="btn3" onclick="fun1('Raman')">
+
+    <input type="button" value="GM" onclick="fun2()">
+    <input type="button" value="GA" onclick="fun3()">
+    <input type="button" value="GE" onclick="fun4()">
+    <input type="button" value="GN" onclick="fun5()">
+
+    <input type="button" value="GM with name" onclick="fun6('Ramesh')">
+    <input type="button" value="GA with name" onclick="fun7('archi')">
+    <input type="button" value="GE with name" onclick="fun8('paresh')">
+    <input type="button" value="GN with name" onclick="fun9('krishu')">
+    
+</body>
+</html>

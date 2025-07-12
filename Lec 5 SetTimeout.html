@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=input, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function fun1()
+        {
+            count = 0;
+            let i = setInterval(() =>
+            {
+                count++;
+                document.getElementById("p1").innerHTML = count;
+            }, 1000);
+
+            setTimeout(() =>
+            {
+                alert("Time Up")
+                clearInterval(i)
+            }, 10000)
+        }
+    </script>
+</head>
+<body>
+
+    <p id="p1"> 0 </p>
+    <input type="button" value="Click Here" onclick="fun1()">
+
+</body>
+</html>

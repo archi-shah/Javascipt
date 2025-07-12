@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function fun1()
+        {
+            var txtname = document.getElementById("txtname")
+            var txtmarks = document.getElementById("txtmarks")
+            var presult = document.getElementById("presult")
+
+            let marks = parseInt(txtmarks.value)
+            let msg = "";
+            let colorname = "";
+
+            if(marks>=60)
+            {
+                msg = "Passed With First Division"
+                colorname = "green"
+            }
+
+            else if(marks>=45)
+            {
+                msg = "Passed With Second Division"
+                colorname = "green"
+            }
+
+            else if(marks>=35)
+            {
+                msg = "Passed With Third Division"
+                colorname = "green"
+            }
+
+            else
+            {
+                msg = "Fail"
+                colorname = "red"
+            }
+
+            presult.innerHTML = msg;
+            presult.style.color = colorname;
+        }
+    </script>
+</head>
+<body>
+    
+    <p>
+        Enter Your Name :  <input type="text" id="txtname">
+    </p>
+
+    <p>
+        Enter Marks :  <input type="text" id="txtmarks">
+    </p>
+
+    <input type="button" value="Show Result" onclick="fun1()">
+
+    <p id="presult">
+
+    </p>
+</body>
+</html>

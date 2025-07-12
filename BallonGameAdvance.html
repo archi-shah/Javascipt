@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body
+        {
+            height: 100dvh;
+            overflow-y: hidden;
+        }
+
+        .container
+        {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 75px;
+            background-color: rgb(181, 202, 252);
+            height: 100dvh;
+        }
+
+
+        .ballon
+        {
+            height: 70px;
+            width: 70px;
+            background-color: orange;
+            border-radius: 50%;
+            border-bottom-right-radius: 0px;
+            transform: rotate(45deg);
+            animation-name: animationBallon;
+            animation-duration: 15s;
+            margin-top:900px;
+            visibility: visible;
+        }
+
+        .green
+        {
+            background-color: royalblue;
+        }
+
+        .blue
+        {
+            background-color: fuchsia;
+        }
+
+        .red 
+        {
+            background-color: red;
+        }
+
+        .yellow
+        {
+            background-color: yellow;
+        }
+
+        .delay1
+        {
+            animation-delay: 10s;
+        }
+
+        .delay1-5
+        {
+            animation-delay: 2s;
+        }
+
+        .delay-5
+        {
+            animation-delay: 5s;
+        }
+
+        @keyframes animationBallon 
+        {
+            from{margin-top: 650px;}
+            to{margin-top: 0px; visibility: hidden;}    
+        }
+
+        @keyframes showGameOver 
+        {
+            from{visibility: visible; color: red;}
+            to{visibility: visible; color: orange;}    
+        }
+
+        .animate-container
+        {
+            animation: animate-text 1s infinite;
+            animation-direction: alternate;
+            animation-timing-function: linear;
+            padding-left:35%;
+            box-sizing: border-box;
+            background-color: beige;
+            color: blueviolet;
+            width: 100%;
+        }
+
+        @keyframes animate-text 
+        {
+            from{padding-top:20%;}
+            to{padding-top:15%;}
+        }
+
+    </style>
+
+    <script>
+        var score = 0;
+
+        function Invisible(e)
+        {
+
+            e.style.visibility = "hidden"
+            score++;
+            document.getElementById("pscore").innerHTML = "Score : " +score
+        }
+
+        function ForGameover()
+        {
+             let container = document.getElementById("container")
+             container.innerHTML="Game Over"
+             container.className="container animate-container"
+        }
+
+        setTimeout( ForGameover, 25000);
+
+    </script>
+
+</head>
+<body>
+    <p id="pscore" style="background-color: brown; color: white; margin: 0; padding: 25px; font-size: 25px;">
+
+        Score : 0
+
+    </p>
+    <div class="container" id="container">
+
+        <div class="ballon delay-5 green" onclick="Invisible(this)"> </div>
+        <div class="ballon delay1 blue" onclick="Invisible(this)"> </div>
+        <div class="ballon yellow" onclick="Invisible(this)"> </div>
+        <div class="ballon delay1-5 red" onclick="Invisible(this)"> </div>
+        <div class="ballon delay-5 blue" onclick="Invisible(this)"> </div>
+        <div class="ballon delay1-5 green" onclick="Invisible(this)"> </div>
+        <div class="ballon delay5 yellow" onclick="Invisible(this)"> </div>
+        <div class="ballon delay1" onclick="Invisible(this)" > </div>
+        <div class="ballon red" onclick="Invisible(this)" > </div>
+        <div class="ballon delay1-5 green" onclick="Invisible(this)" > </div>
+        <div class="ballon delay1" onclick="Invisible(this)" > </div>
+        <div class="ballon delay-5 green" onclick="Invisible(this)" > </div>
+        <div class="ballon delay1-5 red" onclick="Invisible(this)" > </div>
+        <div class="ballon delay1" onclick="Invisible(this)" > </div>
+
+    </div>
+
+</body>
+</html>

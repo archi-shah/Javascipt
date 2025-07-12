@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        @keyframes hidestart
+        {
+            from{margin-top: 20px;}
+            to{margin-top: 20px; visibility: visible;}    
+        }
+
+        .hide
+        {
+            animation: hidestart 4s;
+            visibility: hidden;
+        }
+        
+    </style>
+    <script>
+        function fun1()
+        {
+            count = 30;
+            let i = setInterval(() =>
+            {
+                count--;
+                document.getElementById("p1").innerHTML = count;
+            }, 1000)
+
+            setTimeout(() =>
+            {
+                alert("Time Up")
+                clearInterval(i)
+            }, 30000)
+
+            
+        }
+
+    </script>
+</head>
+<body>
+    <p id="p1"> 30 </p>
+
+    <input type="button" class="hide" value="Start" onclick="fun1()">
+
+</body> 
+</html>

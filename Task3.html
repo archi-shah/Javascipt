@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function fun1()
+        {
+            var txt1 = document.getElementById("txt1")
+            var txt2 = document.getElementById("txt2")
+
+            let name = txt1.value
+            let units =parseInt(txt2.value)
+
+            if(units<=49)
+            {
+                let bill = 5 * units;
+                alert(`Dear ${name} your bill for ${units} is ${bill}`)
+            }
+            else if(units<=99)
+            {
+                let bill1 = 7 * units;
+                alert(`Dear ${name} your bill for ${units} is ${bill1}`)
+            }
+            else if(units>=100)
+            {
+                let bill2 = 10 * units;
+                alert(`Dear ${name} your bill for ${units} is ${bill2}`)
+            }
+        }
+    </script>
+</head>
+<body>
+    
+    <p> 
+        Enter Name : <input type="text" id="txt1">
+    </p>
+
+    <p>
+        Enter Units Consumed : <input type="text" id="txt2">
+    </p>
+
+    <p>
+        <input type="button" value="getbill" onclick="fun1()">
+    </p>
+</body>
+</html>

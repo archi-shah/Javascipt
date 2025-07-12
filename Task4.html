@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/style1.css">
+
+    <script>
+
+        function fun1()
+        {
+            var txt1 = document.getElementById("txt1").value
+            var txt2 = document.getElementById("txt2")
+            var txt3 = document.getElementById("txt3")
+            var txt4 = document.getElementById("txt4")
+            var txt5 = document.getElementById("txt5")
+            
+            var txt6 = document.getElementById("txt6")
+
+            let m1 = parseInt(txt2.value)
+            let m2 = parseInt(txt3.value)
+            let m3 = parseInt(txt4.value)
+            let m4 = parseInt(txt5.value)
+            let m5 = parseInt(txt6.value)
+
+            Total = m1+m2+m3+m4+m5
+            alert(`Sum Is ${Total}`)
+
+        }
+
+        function fun2()
+        {
+            Avg = Total/5
+            alert(`Average Is ${Avg}`)
+        }
+
+    </script>
+</head>
+<body>
+    
+        <div class="container">
+
+        <h3>
+            Enter Name : <input type="text" id="txt1">
+        </h3>
+
+        <table>
+            
+            <tr>
+                <th> <h3> Enter Five Subject Marks : </h3></th>
+            </tr>
+
+            <tr>
+                <td> Enter Maths Marks : </td>
+                <td> <input type="text" id="txt2"></td>
+            </tr>
+
+            <tr>
+                <td> Enter Science Marks : </td>
+                <td> <input type="text" id="txt3"></td>
+            </tr>
+
+            <tr>
+                <td> Enter English Marks : </td>
+                <td> <input type="text" id="txt4"></td>
+            </tr>
+
+            <tr> 
+                <td> Enter Physics Marks : </td>
+                <td> <input type="text" id="txt5"></td>
+            </tr>
+
+            <tr>
+                <td> Enter Chemistry Marks : </td>
+                <td> <input type="text" id="txt6"></td>
+            </tr>
+
+            <tr>
+                <td> <input type="button" value="Total" onclick="fun1()"></td>  &emsp;
+                <td> <input type="button" value="Avg" onclick="fun2()"></td>
+            </tr>
+        </table>
+        </div>
+</body>
+</html>

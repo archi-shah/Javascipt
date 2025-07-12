@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="./css/style.css">
+    
+    <script>
+        function fun1(op)
+        {
+            var txta = document.getElementById("txta")
+            var txtb = document.getElementById("txtb")
+
+            let a = parseInt(txta.value)
+            let b = parseInt(txtb.value)
+            if(op=='+')
+            {
+                let add = a+b;
+                alert(`Sum Is ${add}`);
+            }
+            else if(op=='-')
+            {
+                let sub = a-b;
+                alert(`Sub Is ${sub}`);
+            }
+            else if(op=='*')
+            {
+                let mul = a*b;
+                alert(`Mul Is ${mul}`);
+            }
+            else
+            {
+                let div = a/b;
+                alert(`Div Is ${div}`)
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <p>
+        Enter a : <input type="text"  id="txta">
+    </p>
+
+    <p>
+        Enter b : <input type="text"  id="txtb">
+    </p>
+
+    <input type="button" value="+" onclick="fun1('+')" class="btncalc" style="width: 50px;">
+    <input type="button" value="-" onclick="fun1('-')" class="btncalc" style="width: 50px;">
+    <input type="button" value="*" onclick="fun1('*')" class="btncalc" style="width: 50px;">
+    <input type="button" value="/" onclick="fun1('/')" class="btncalc" style="width: 50px;">
+</body>
+</html>

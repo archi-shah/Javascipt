@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container
+        {
+            display: flex;
+            flex-wrap: wrap;
+            border:30px solid brown;
+            gap: 15px;
+            height:350px;
+        }
+        @keyframes animate-ball {
+            from {margin-top:0px;}
+            to{margin-top:300px;}
+            
+        }
+        .ball
+        {
+            height: 50px;
+            width:50px;
+            animation  :animate-ball 2s infinite alternate linear;
+            border-radius: 50%;
+            background-color: magenta;
+            margin-top:-500px;
+        }
+    </style>
+    <script>
+        function fun1()
+        {
+            var container = document.getElementById("container");
+            let count = 0;
+           let i =  setInterval(()=>
+            {
+                count++;
+                if(count>=10)
+                {
+                    clearInterval(i)
+                }
+                var d =document.createElement("div")
+                d.className = "ball"
+                let delay = Math.round(Math.random()*1000)+"ms"
+                d.style.animationDelay = delay
+                let speed = Math.round(Math.random()*5000)
+
+                if(speed<1000)
+                {
+                    speed=1500
+                }
+                d.style.animationDuration = speed +"ms"
+
+                if(count%4==0)
+                {
+                    d.style.backgroundColor="orange"
+                }
+
+                else if(count%4==1)
+                {
+                    d.style.backgroundColor="yellow"
+                }
+
+                else if(count%4==2)
+                {
+                    d.style.backgroundColor="purple"
+                }
+
+                else if(count%4 ==3)
+                {
+                    d.style.backgroundColor="greenyellow"
+                }
+
+                container.appendChild(d)
+            
+            },1000)
+        }
+    </script>
+</head>
+<body onload="fun1()">
+        <div id="container">
+
+        </div>
+</body>
+</html>     

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .ballon
+        {
+            height: 150px;
+            width: 150px;
+            transform: rotate(45deg);
+            border-radius: 50%;
+            border-bottom-right-radius: 0px;
+            margin-top: 110px;
+            margin-left: 100px;
+            background-color: orange;
+            
+        }
+
+        .ballon1
+        {
+            height: 150px;
+            width: 150px;
+            transform: rotate(45deg);
+            border-radius: 50%;
+            border-bottom-right-radius: 0px;
+            margin-top: 20%;
+            margin-left: 100px;
+            background-color: chartreuse;
+        }
+
+        .ballon2
+        {
+            height: 150px;
+            width: 150px;
+            transform: rotate(45deg);
+            border-radius: 50%;
+            border-bottom-right-radius: 0px;
+            margin-top: 50px;
+            margin-left: 400px;
+            background-color: rgb(70, 188, 221);
+               
+        }
+
+        .container
+        {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+    </style>
+
+    <script>
+        let score=0;
+
+        function Invisible(d1)
+        {
+            d1.style.visibility = "hidden"
+            hresult = document.getElementById("hresult")
+            score = score + 1
+            msg = `Score : ${score}`
+            hresult.innerHTML = msg;
+
+        }
+
+    </script>
+    
+</head>
+<body>
+    
+    <p id="hresult">
+Score : 0
+    </p>
+    <div class="container">
+
+        <div class="ballon" onclick="Invisible(this)">
+
+        </div>
+
+        <div class="ballon1" onclick="Invisible(this)">
+
+        </div>
+
+        <div class="ballon" onclick="Invisible(this)">
+
+        </div>
+
+        <div class="ballon1" onclick="Invisible(this)">
+
+        </div>
+
+        <div class="ballon" onclick="Invisible(this)">
+
+        </div>
+
+        <div class="ballon" onclick="Invisible(this)">
+
+        </div>
+
+        <div class="ballon2" onclick="Invisible(this)">
+
+        </div>
+
+        <div class="ballon  ballon2" onclick="Invisible(this)">
+
+        </div>
+        
+        
+
+    </div>
+
+</body>
+</html>

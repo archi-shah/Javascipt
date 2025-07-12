@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box
+        {
+            height: 100px;
+            width: 100px;
+            background-color: orange;
+            
+        }
+
+        .container
+        {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+    </style>
+
+    <script>
+        function Zoomin(d1)
+        {
+            d1.style.height = "200px"
+            d1.style.width = "200px"
+        }
+
+        function Invisible(d1)
+        {
+            d1.style.visibility = "hidden"
+        }
+        
+        function Zoomout(d1)
+        {
+            d1.style.height = "100px"
+            d1.style.width = "100px"
+        }
+
+    </script>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="box" onclick="Zoomin(this)" ondblclick="Invisible(this)">
+        </div>
+
+        <div class="box" onclick="Zoomin(this)" ondblclick="Invisible(this)">
+
+        </div>
+
+        <div class="box" onclick="Zoomin(this)" ondblclick="Invisible(this)">
+
+        </div>
+
+        <div class="box" onclick="Zoomin(this)" ondblclick="Invisible(this)">
+
+        </div>
+    </div>
+
+</body>
+</html>
