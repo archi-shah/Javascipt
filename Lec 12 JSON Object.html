@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        let users = []
+
+        function Adduser()
+        {
+            let txtname = document.getElementById("txtname")
+            let txtage = document.getElementById("txtage")
+            let txtemail = document.getElementById("txtemail")
+
+            let user = {name:txtname.value,age:txtage.value,email:txtemail.value}
+
+            users.push(user)
+            console.log(users)
+            // document.getElementById("hresult").innerHTML = JSON.stringify(users)
+            txtname.value = ""
+            txtage.value = ""
+            txtemail.value = ""
+            txtname.focus()
+            showuser()
+        }
+
+        function showuser()
+        {
+            let tbdy = document.getElementById("tbdy")
+            let userUI = users.map((u) =>
+            {
+                return `<tr>
+                    <td> ${u.name} </td>
+                    <td> ${u.age} </td>
+                    <td> ${u.email} </td>
+                    <td> <input type="button" value="Edit" onclick='editUser("${u}")'/> </td>
+                    <td> <input type="button" value="Delete" onclick='deleteUser("${u.email}")' </td>     
+                    </tr>`
+            }).join("")
+
+            tbdy.innerHTML = userUI
+        }
+
+        function editUser(user)
+        {
+            let i = users.findIndex((u) => u==user)
+            users.splice(i,1)
+            document.getElementById("txtname").value = user.txtname
+            document.getElementById("txtage").value = user.txtage
+            document.getElementById("txtemail").value = user.txtemail
+        }
+
+        function deleteUser(useremail)
+        {
+            let i = users.findIndex((u) => u.email == useremail)
+            users.splice(i,1)
+            showuser()
+        }
+
+    </script>
+</head>
+<body>
+    <p>
+        Name :   <input type="text" id="txtname">
+    </p>
+
+    <p>
+        Age :   <input type="text" id="txtage">
+    </p>
+
+    <p>
+        Email :  <input type="text" id="txtemail">
+    </p>
+
+    <input type="button" value="Add user" onclick="Adduser()">
+
+    <h1 id="hresult">
+
+    </h1>
+
+    <table border="">
+        <thead>
+            <tr>
+                <td> Name </td>
+                <td> Age </td>
+                <td> Email </td>
+                <td> Edit </td>
+                <td> Delete </td>
+            </tr>
+        </thead>
+
+        <tbody id="tbdy">
+
+        </tbody>
+
+    </table>
+
+</body>
+</html>

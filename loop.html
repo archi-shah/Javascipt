@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Multiplication Table </title>
+
+    <script>
+        function fun1()
+        {
+            var txtno = document.getElementById("txtno")
+            var presult = document.getElementById("presult")
+
+            let no = parseInt(txtno.value)
+            let msg = ""
+            let i
+            
+            for(i=1;i<=10;i++)
+            {
+                msg = msg + `${no} * ${i} = ${no*i} ` + "<br>"
+                console.log("hello")
+            }
+
+            presult.innerHTML = msg;
+
+        }
+    </script>
+</head>
+<body>
+    
+    Enter No : 
+    <input type="number" id="txtno">
+
+    <input type="button" value="Print Table" onclick="fun1()">
+
+    <p id="presult">
+
+    </p>
+
+</body>
+</html>

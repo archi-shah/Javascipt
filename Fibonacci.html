@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function showSeries()
+        {
+           let txtnumber = document.getElementById("txtnumber")
+           let pseries = document.getElementById("pseries")
+           let n = parseInt(txtnumber.value)
+           let i = 0;
+           let j = 1;
+
+           pseries.innerHTML = "0"
+
+           while(j<n)
+           {
+                pseries.innerHTML += "," + j;
+
+                let t = i;
+                i = j;
+                j = j+t;
+           }
+        }
+    </script>
+
+</head>
+<body>
+    <p>
+        Enter Any No :  
+        <input type="text" id="txtnumber">
+    </p>
+
+    <input type="button" value="Show series" onclick="showSeries()">
+
+    <p id="pseries">
+
+    </p>
+</body>
+</html>

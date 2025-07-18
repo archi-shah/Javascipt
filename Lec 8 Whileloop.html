@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function checkPrime()
+        {
+            let n = parseInt(document.getElementById("txtnumber").value)
+            let i = 2
+            let msg = `${n} is a prime no`
+
+            while(i<n)
+            {
+                if(n%i==0)
+                {
+                    msg = `${n} is not a prime no`
+                    break
+                }
+                i++;
+            }
+
+            document.getElementById("hresult").innerHTML = msg
+        }
+    </script>
+</head>
+<body>
+    <p>
+        Enter Any No :  <input type="text" id="txtnumber">
+
+        <input type="button" value="Check Prime" onclick="checkPrime()">
+    </p>
+
+    <h1 id="hresult"> </h1>
+
+</body>
+</html>

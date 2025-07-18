@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        function showuser()
+        {
+            let txtname = document.getElementById("txtname").value
+            let txtage = parseInt(document.getElementById("txtage").value)
+            let txtemail = document.getElementById("txtemail").value
+
+            document.getElementById("hresult").innerHTML = `Name Is ${txtname} Age Is ${txtage} Email Is ${txtemail}`  
+            // console.log(name)
+            // console.log(age)
+            // console.log(email)
+            
+        }
+    </script>
+</head>
+<body>
+    <p>
+        Name :  <input type="text" id="txtname">
+    </p>
+
+    <p>
+        Age :  <input type="number" id="txtage">
+    </p>
+
+    <p>
+        Email :  <input type="email" id="txtemail">
+    </p>
+
+    <input type="button" value="Show User" onclick="showuser()">
+
+    <h1 id="hresult">
+
+    </h1>
+</body>
+</html>

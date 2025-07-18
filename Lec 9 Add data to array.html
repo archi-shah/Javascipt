@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        let students = []
+        function showStudents()
+        {
+            let tbdy = document.getElementById("tbdy")
+            tbdy.innerHTML = ""
+
+            for(i=0;i<students.length;i++)
+            {
+                tbdy.innerHTML += `<tr> <td> ${students[i]} </td> </tr>`
+            }
+        }
+
+        function addstudent()
+        {
+            let txtname = document.getElementById("txtname")
+
+            // students.push(txtname.value)
+
+            students.unshift(txtname.value)
+            txtname.value = ""
+            txtname.focus()
+            showStudents()
+        }
+        
+    </script>
+</head>
+<body>
+    <p>
+        Enter Student Name :  <input type="text" id="txtname">
+        <input type="button" value="Add" onclick="addstudent()">
+        <input type="button" value="Remove From Bottom" onclick="students.pop(); showStudents()">
+        <input type="button" value="Remove From Top" onclick="students.shift(); showStudents()">
+
+    </p>
+
+    <input type="button" value="show students" onclick="showStudents()">
+    <br> <br> <br>
+
+    <table border = "">
+        <thead>
+            <tr>
+                <td> Student Name </td>
+            </tr>
+        </thead>
+
+        <tbody id="tbdy">
+
+        </tbody>
+
+    </table>
+</body>
+</html>

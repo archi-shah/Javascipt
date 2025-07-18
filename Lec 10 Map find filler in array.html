@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        let users = []
+
+        function showusers()
+        {
+            let tbdy = document.getElementById("tbdy")
+            let rows = users.map((u) =>
+            {
+                return `<tr> <td> ${u} </td> </tr>`
+            }).join("")
+
+            // console.log(rows)
+
+            tbdy.innerHTML = rows
+        }
+
+        function Adduser()
+        {
+            let txtname = document.getElementById("txtname")
+            users.push(txtname.value)
+            showusers()
+            txtname.value=""
+            txtname.focus()
+        }
+
+        function finduser()
+        {
+            let username= document.getElementById("txtname").value
+            // let i = users.findIndex((u) => u==username)
+            let i = users.find((u) => u==username)
+            document.getElementById("tbdy").innerHTML = `<tr> <td> ${i} </td></tr>`
+            txtname.focus()
+        }
+    </script>
+</head>
+<body>
+    <p>
+        Enter Name : 
+        <input type="text" id="txtname">
+        <input type="button" value="Add" onclick="Adduser()">
+        <input type="button" value="find" onclick="finduser()">
+    </p>
+
+    <table border="">
+        <thead>
+            <tr>
+                <td> Name </td>
+            </tr>
+        </thead>
+
+        <tbody id="tbdy">
+
+        </tbody>
+    </table>
+</body>
+</html>

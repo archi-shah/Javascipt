@@ -11,10 +11,7 @@
             display: flex;
             flex-wrap: wrap;
             border: 20px solid brown;
-            height: 450px;
-            margin-top: 45px;
-            margin-left: 15px;
-            margin-right: 15px;
+            height: 92dvh;
         }
 
         #leftpanel
@@ -56,7 +53,7 @@
         @keyframes animate-ball
         {
             from{margin-top: 0px;}
-            to{margin-top: 375px;}    
+            to{margin-top: 560px;}    
         }
         
         .ball
@@ -144,6 +141,7 @@
             ball.style.visibility = "hidden";
             score++;
             document.getElementById("pscore").innerHTML = "Score : " + score;
+           
             if(score ==10)
             {
                leftpanel.innerHTML="You Won"
@@ -162,27 +160,44 @@
             {
                 count++;
                 if(count==60)
-            {
-                             let leftpanel = document.getElementById("leftpanel")
-             leftpanel.innerHTML="Game Over"
-             leftpanel.className="container animate-container"
+                {
+                    let leftpanel = document.getElementById("leftpanel")
+                    leftpanel.innerHTML="Game Over"
+                    leftpanel.className="container animate-container"
 
-             document.getElementById("btnrestart").style.visibility = "visible"
+                    document.getElementById("btnrestart").style.visibility = "visible"
 
-            }
+                }
+                
                 if(score==10)
-            {
-                clearInterval(i)
-            }
-                document.getElementById("p1").innerHTML = count;
-            },1000)
+                {
+                    clearInterval(i)
+                }
+                
+                    document.getElementById("p1").innerHTML = count;
 
-            fun1();
+                },1000)
 
-            setTimeout(() =>
-            {
-                clearInterval(i)
-            },60000)
+                fun1();
+
+                setTimeout(() =>
+                {
+                    clearInterval(i)
+                },60000)
+        }
+
+        function Restart()
+        {
+            score = 0
+
+            document.getElementById("pscore").innerHTML = "Score : 0";
+            document.getElementById("p1").innerHTML = "0";
+
+            clearInterval(i)
+
+            const leftpanel = document.getElementById("leftpanel");
+            leftpanel.innerHTML = ""; 
+            leftpanel.className = ""; 
         }
 
     </script>
@@ -208,7 +223,7 @@
 
             </p>
 
-            <input type="button" value="RESTART" class="btn" id="btnrestart" style="visibility: hidden;">
+            <input type="button" value="RESTART" class="btn" id="btnrestart" onclick="fun1()" style="visibility: hidden;">
         </div>
 
     </div>

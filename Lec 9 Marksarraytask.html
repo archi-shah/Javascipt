@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        let marks = []
+
+        function addMarks()
+        {
+            // add new marks to marks array
+            let txtnumber = document.getElementById("txtnumber")
+            marks.unshift(parseInt(txtnumber.value))
+            txtnumber.value = ""
+            txtnumber.focus()
+            showMarks()
+        }
+
+        function showMarks()
+        {
+            // show all the marks in table
+            let tbdy = document.getElementById("tbdy")
+            tbdy.innerHTML = ""
+
+            for(i=0;i<marks.length;i++)
+            {
+                tbdy.innerHTML += `<tr> <td> ${marks[i]} </td> </tr>`
+            }
+        }
+
+        function Maxmarks()
+        {
+            // show max marks in heading
+            let maxmarks = marks[0]
+
+            for(i=1;i<marks.length;i++)
+            {
+                if(maxmarks<marks[i])
+                {
+                    maxmarks = marks[i]
+                }
+            }
+            document.getElementById("h1").innerHTML = "Maximum Marks Is : " + maxmarks
+        }
+
+        function Minmarks()
+        {
+            // show minimum marks in heading
+            let minmarks = marks[0]
+
+            for(i=1;i<marks.length;i++)
+            {
+                if(minmarks>marks[i])
+                {
+                    minmarks = marks[i]
+                }
+            }
+            document.getElementById("h1").innerHTML = "Minimum Marks Is : " + minmarks
+        }
+
+        function Findaverage()
+        {
+            // show average of all the marks in heading
+            let sum = 0
+
+            for(i=0;i<marks.length;i++)
+            {
+                sum = sum + marks[i]
+            }
+            let avg = sum/marks.length
+            document.getElementById("h1").innerHTML = "Average Is : " + avg 
+        }
+
+        function findmarks()
+        {
+            let mark = document.getElementById("txtnumber").value
+
+            let i = marks.findIndex((m) => m==mark)
+            // let i = marks.find((m) => m==mark)
+            document.getElementById("tbdy").innerHTML = `<tr> <td> ${i} </td> </tr>`
+            txtnumber.focus()
+        }
+        
+
+    </script>
+</head>
+<body>
+    <p>
+        Enter Marks <input type="number" id="txtnumber"> 
+        <input type="button" value="Add" onclick="addMarks()"> 
+    </p>
+
+    <input type="button" value="Show max" onclick="Maxmarks()">
+    <input type="button" value="Show min" onclick="Minmarks()">
+    <input type="button" value="Show average" onclick="Findaverage()">
+    <input type="button" value="find" onclick="findmarks()">
+
+    <h1 id="h1">
+    
+    </h1>  
+
+    <table border="">
+        <thead>
+            <tr><td>
+                Marks
+            </td></tr>
+        </thead>
+        <tbody id="tbdy">
+
+        </tbody>
+    </table>
+
+</body>
+</html>

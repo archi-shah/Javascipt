@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        let marks = []
+
+        function showmarks()
+        {
+            let tbdy = document.getElementById("tbdy")
+            let rows = marks.map((m) =>
+            {
+                if(m>=35)
+                {
+                    return `<tr style='background-color:yellowgreen'> <td> ${m} </td><td> ${(m*0.1+m) } </td> <td> Pass </td> </tr>`
+                }
+                else
+                {
+                    return `<tr style='background-color:orange'> <td> ${m} <td>${m} </td> <td> Fail </td> </tr>`
+                }
+            }).join("")
+
+            // console.log(rows)
+
+            tbdy.innerHTML = rows
+        }
+
+        function Addmarks()
+        {
+            let txtnumber = document.getElementById("txtnumber")
+            marks.push(parseInt(txtnumber.value))
+            txtnumber.value=""
+            txtnumber.focus()
+            showmarks()
+        }
+
+    </script>
+</head>
+<body onload="txtnumber.focus()">
+
+    <p>
+        Enter Marks : 
+        <input type="text" id="txtnumber">
+        <input type="button" value="Add" onclick="Addmarks()">
+        <!-- <input type="button" value="find" onclick="finduser()"> -->
+    </p>
+
+    <h3 id="hresult">
+
+    </h3>
+
+    <table border="">
+        <thead>
+            <tr>
+                <td> Marks </td>
+                
+                <td> New Marks </td>
+                
+                <td> Result </td>
+            </tr>
+        </thead>
+
+        <tbody id="tbdy">
+
+        </tbody>
+    </table>
+</body>
+</html>

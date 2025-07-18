@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function showtable()
+        {
+            var txtnumber = document.getElementById("txtnumber")
+            let n = parseInt(txtnumber.value)
+            let tbdy = document.getElementById("tbdy")
+            tbdy.innerHTML = ""
+
+            for(var i=1;i<=10;i++)
+            {
+                let tr = document.createElement("tr")
+                let td1 = document.createElement("td")
+                let td2 = document.createElement("td")
+                let td3 = document.createElement("td")
+                let td4 = document.createElement("td")
+                let td5 = document.createElement("td")
+
+                td1.innerHTML = n
+                td2.innerHTML = "x"
+                td3.innerHTML = i
+                td4.innerHTML = "="
+                td5.innerHTML = i*n
+
+                tr.appendChild(td1)
+                tr.appendChild(td2)
+                tr.appendChild(td3)
+                tr.appendChild(td4)
+                tr.appendChild(td5)
+
+                tbdy.appendChild(tr)
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <p>
+        Enter Any No :
+        <input type="text" id="txtnumber">
+        <input type="button" value="Show Table" onclick="showtable()">
+    </p>
+
+    <table border="">
+        <tbody id="tbdy">
+            <tr>
+
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
