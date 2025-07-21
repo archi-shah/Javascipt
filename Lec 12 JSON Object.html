@@ -8,15 +8,33 @@
     <script>
         let users = []
 
-        function Adduser()
+        function Adduser(flag)
         {
             let txtname = document.getElementById("txtname")
             let txtage = document.getElementById("txtage")
             let txtemail = document.getElementById("txtemail")
 
-            let user = {name:txtname.value,age:txtage.value,email:txtemail.value}
+            if(flag == "Add")
+            {
+                // Add case
 
-            users.push(user)
+                let user = {name:txtname.value,age:txtage.value,email:txtemail.value}
+                users.push(user)
+            }
+            
+            else
+            {
+                // Update Case 
+
+                let i = parseInt(document.getElementById("txtindex").value)
+
+                users[i].name = txtname.value
+                users[i].age = txtage.value
+                users[i].email = txtemail.value
+                document.getElementById("btnAdd").style.visibility = "visible"
+                document.getElementById("btnUpdate").style.visibility = "hidden"
+            }
+
             console.log(users)
             // document.getElementById("hresult").innerHTML = JSON.stringify(users)
             txtname.value = ""
@@ -29,13 +47,13 @@
         function showuser()
         {
             let tbdy = document.getElementById("tbdy")
-            let userUI = users.map((u) =>
+            let userUI = users.map((u,index) =>
             {
                 return `<tr>
                     <td> ${u.name} </td>
                     <td> ${u.age} </td>
                     <td> ${u.email} </td>
-                    <td> <input type="button" value="Edit" onclick='editUser("${u}")'/> </td>
+                    <td> <input type="button" value="Edit" onclick='editUser(${JSON.stringify(u)},${index})'/> </td>
                     <td> <input type="button" value="Delete" onclick='deleteUser("${u.email}")' </td>     
                     </tr>`
             }).join("")
@@ -43,13 +61,14 @@
             tbdy.innerHTML = userUI
         }
 
-        function editUser(user)
+        function editUser(u,index)
         {
-            let i = users.findIndex((u) => u==user)
-            users.splice(i,1)
-            document.getElementById("txtname").value = user.txtname
-            document.getElementById("txtage").value = user.txtage
-            document.getElementById("txtemail").value = user.txtemail
+            document.getElementById("txtname").value = u.name
+            document.getElementById("txtage").value = u.age
+            document.getElementById("txtemail").value = u.email
+            document.getElementById("txtindex").value = index
+            document.getElementById("btnAdd").style.visibility = "hidden"
+            document.getElementById("btnUpdate").style.visibility = "visible"
         }
 
         function deleteUser(useremail)
@@ -62,6 +81,9 @@
     </script>
 </head>
 <body>
+
+    <input type="text" id="txtindex" style="visibility: hidden;">
+
     <p>
         Name :   <input type="text" id="txtname">
     </p>
@@ -74,7 +96,8 @@
         Email :  <input type="text" id="txtemail">
     </p>
 
-    <input type="button" value="Add user" onclick="Adduser()">
+    <input type="button" value="Add user" id="btnAdd" onclick="Adduser('Add')">
+    <input type="button" value="Update user" id="btnUpdate" style="visibility: hidden;" onclick="Adduser('Update')">
 
     <h1 id="hresult">
 

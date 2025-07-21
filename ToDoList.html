@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #container
+        {
+            background: linear-gradient(-180deg, #eecdf6 0%, #fae4c0 100%);
+            height: 550px;
+            width: 950px;
+            background-color: bisque;
+            margin-left: 18%;
+        }
+
+        #txtname
+        {
+            height: 35px;
+            width: 500px;
+            margin-top: 50px;
+            margin-left: 100px;
+            border-radius: 10px;
+            border: hidden;
+        }
+
+        #btnAdd
+        {
+            height: 40px;
+            width: 130px;
+            margin-left: 40px;
+            font-size: 16px;
+            background: linear-gradient(135deg, #fef3ac 0%, #d0f3d0 100%);
+            border: hidden;
+            border-radius: 20px;
+        }
+
+        #btnUpdate
+        {
+            height: 40px;
+            width: 130px;
+            margin-left: 380px;
+            margin-top: 10px;
+            font-size: 16px;
+            background: linear-gradient(135deg, #fef3ac 0%, #d0f3d0 100%);
+            border: hidden;
+            border-radius: 20px;
+        }
+        
+        #t1
+        {
+            margin-top: 35px;
+            margin-left: 80px;
+            width: 800px;
+            text-align: center;
+        }
+
+    </style>
+
+    <script>
+
+        let tasks = []
+
+        function AddTask(flag)
+        {
+            let txtname = document.getElementById("txtname")
+
+            if(flag == "Add")
+            {
+                // Add Case 
+                let task = {name:txtname.value, status:"Pending"}
+                tasks.push(task)
+            }
+            
+            else
+            {
+                // Update Case
+                let i = parseInt(document.getElementById("txtindex").value)
+
+                tasks[i].name = txtname.value
+                document.getElementById("btnAdd").style.visibility = "visible"
+                document.getElementById("btnUpdate").style.visibility = "hidden"
+            }
+
+            console.log(tasks)
+            txtname.value = ""
+            txtname.focus()
+            showtask()
+        } 
+
+        function showtask()
+        {
+            let tbdy = document.getElementById("tbdy")
+            let taskUI = tasks.map((t,index) => 
+            {
+                return `<tr>
+                    <td> ${t.name} </td>
+                    <td> ${t.status} </td>
+                    <td> <input type="button" value="Edit" onclick='editTask(${JSON.stringify(t)},${index})'/> </td>
+                    <td> <input type="button" value="Done" id="d1" onclick='done(${index})' /> </td>
+                    <td> <input type="button" value="Delete" onclick='deleteTask("${t.name}")'/> </td>
+                    </tr>`
+            }).join("")
+
+            tbdy.innerHTML = taskUI
+        }
+
+        function done(index)
+        {
+            tasks[index].status="Done"
+            showtask()
+        }
+
+        function editTask(t,index)
+        {
+            document.getElementById("txtname").value = t.name
+            document.getElementById("txtindex").value = index
+            document.getElementById("btnAdd").style.visibility = "hidden"
+            document.getElementById("btnUpdate").style.visibility = "visible"
+        }
+
+        function deleteTask(taskdel)
+        {
+            let i = tasks.findIndex((t) => t.name == taskdel)
+            tasks.splice(i,1)
+            showtask()
+        }
+
+    </script>
+
+</head>
+<body>
+
+        <h1 style="background:linear-gradient(210deg, #b678ec 0%, #bdd2f8 100%); color: black; text-align: center; margin: 0px; height: 80px; width: 950px; margin-left: 18%; 
+                padding-top: 15px; "> To - Do App </h1>
+
+    <div id="container">
+        
+        <input type="text" id="txtindex" style="display: none;">
+
+        <input type="text" id="txtname">
+ 
+        <input type="button" value="Add Task" id="btnAdd" onclick="AddTask('Add')"> 
+        <input type="button" value="Update Task" id="btnUpdate" style="visibility: hidden;" onclick="AddTask('Update')">
+
+        <table id="t1" border="">
+            <thead>
+                <tr>
+                    <td> Task </td>
+                    <td> Status </td>
+                    <td> Edit </td>
+                    <td> Done </td>
+                    <td> Delete </td>
+                </tr>
+            </thead>
+
+            <tbody id="tbdy">
+
+            </tbody>
+            
+        </table>
+        
+    </div>
+</body>
+</html>
